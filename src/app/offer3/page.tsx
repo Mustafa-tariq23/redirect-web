@@ -18,24 +18,27 @@ function Offer3Content() {
     }, [searchParams]);
 
     useEffect(() => {
-        const handleBackButtonSetup = () => {
-            // Add an entry to browser history
+        // Prevent back navigation by continuously pushing state
+        const preventBack = () => {
             window.history.pushState(null, '', window.location.href);
+        };
+        
+        // Push initial state
+        preventBack();
 
-            const handlePopState = () => {
-                // When back button is pressed, go to blankPage
-                window.location.href = '/blankPage';
-            };
-
-            window.addEventListener('popstate', handlePopState);
-
-            return () => {
-                window.removeEventListener('popstate', handlePopState);
-            };
+        const handlePopState = (e: PopStateEvent) => {
+            e.preventDefault();
+            // Immediately push state again to prevent going back
+            preventBack();
+            // Redirect to next page
+            window.location.href = '/blankPage';
         };
 
-        const cleanup = handleBackButtonSetup();
-        return cleanup;
+        window.addEventListener('popstate', handlePopState);
+
+        return () => {
+            window.removeEventListener('popstate', handlePopState);
+        };
     }, []);
 
     const handlePageClick = () => {
