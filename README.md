@@ -30,7 +30,7 @@ offer1  →  offer2  →  offer3  →  offer4  →  offer5
 
 ## 👥 Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=dev-hub85/redirect-web)](https://github.com/dev-hub85/redirect-web/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=Mustafa-tariq23/redirect-web)](https://github.com/Mustafa-tariq23/redirect-web/graphs/contributors)
 
 ## 📁 Project Structure
 
